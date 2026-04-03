@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makeup Looks</title>
+  <style>
+    body { margin:0; font-family:Poppins, Arial, sans-serif; background:#fff7f0; animation:fadeIn 1s ease; }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+    header { text-align:center; padding:2rem; background:linear-gradient(135deg,#f2c6b4,#b76e79); color:white; }
+    a.back { display:inline-block; margin:1.5rem; color:#b76e79; text-decoration:none; font-weight:600; }
+    h2 { text-align:center; color:#b76e79; margin-bottom:2rem; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; padding:0 1.5rem 3rem; }
+    .gallery img { width:100%; height:320px; object-fit:cover; border-radius:14px; box-shadow:0 6px 15px rgba(0,0,0,0.2); transition:transform 0.4s ease; }
+    .gallery img:hover { transform:scale(1.08) rotate(0.5deg); }
+    #imageViewer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+#imageViewer img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+#closeViewer{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Makeup Looks</h1>
+    <p>Bridal • Party • Glam</p>
+  </header>
+
+  <div id="imageViewer">
+    <span id="closeViewer">&times;</span>
+    <img id="viewerImg">
+  </div>
+
+  <a href="index.html" class="back">← Back to Home</a>
+
+  <h2></h2>
+  <div class="gallery">
+    <img src="images/hair1.jpeg" alt="Makeup Look">
+    <img src="images/hair2.jpeg" alt="Makeup Look">
+    <img src="images/Makeup1.jpeg" alt="Makeup Look">
+    <img src="images/Makeup2.jpeg" alt="Makeup Look">
+  </div>
+
+  <script>
+const images = document.querySelectorAll(".gallery img");
+const viewer = document.getElementById("imageViewer");
+const viewerImg = document.getElementById("viewerImg");
+const closeViewer = document.getElementById("closeViewer");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    viewer.style.display = "flex";
+    viewerImg.src = img.src;
+  });
+});
+
+closeViewer.onclick = () => {
+  viewer.style.display = "none";
+};
+</script>
+</body>
+</html>
