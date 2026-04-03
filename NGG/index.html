@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehendi & Makeup Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #fff7f0;
+      color: #333;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header{
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg,#b76e79,#f2c6b4);
+  color: white;
+}
+
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #b76e79;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #b76e79;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeUp 1s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #b76e79;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      break-inside: avoid;
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08) rotate(0.5deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+     }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-section{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:40px;
+      padding:40px;
+    }
+
+    .about-text{
+      max-width:690px;
+      font-size: 20px;
+    }
+
+    .about-image img{
+      width:300px;
+      border-radius:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .contact {
+      text-align: center;
+      animation: fadeUp 1s ease;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #b76e79;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .insta-button {
+    background-color: #b97a84; /* Instagram pink/red */
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none; /* Removes the underline */
+    display: inline-block;
+    border-radius: 8px; /* Rounded corners */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  /* Changes color when you hover over it */
+  .insta-button:hover {
+    background-color: #C13584; 
+    color: #f0f0f0;
+  }
+  .call-btn {
+    background-color: #b97a84; /* Matching your Mehendi button color */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1); /* Adds a soft professional shadow */
+  }
+  
+  .call-btn:hover {
+    background-color: #a1636d; /* Slightly darker on hover */
+  }
+  .logo{
+  position:absolute;
+  left:30px;
+  top:50%;
+  transform:translateY(-50%);
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  }
+  #services{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.services-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.service-card{
+  background:white;
+  padding:25px;
+  width:250px;
+  border-radius:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.service-card h3{
+  color:#b76e79;
+  margin-bottom:10px;
+}
+
+.service-card p{
+  font-size:14px;
+  line-height:1.5;
+}
+  /* .floating-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.floating-bg img{
+  position:absolute;
+  width:180px;
+  opacity:0.08;
+  animation:float 20s linear infinite;
+} */
+/* 
+.floating-bg img:nth-child(1){
+  top:20%;
+  left:10%;
+}
+
+.floating-bg img:nth-child(2){
+  top:60%;
+  left:70%;
+  animation-duration:25s;
+}
+
+.floating-bg img:nth-child(3){
+  top:80%;
+  left:30%;
+  animation-duration:30s;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0px) rotate(0deg);
+  }
+  50%{
+    transform:translateY(-40px) rotate(10deg);
+  }
+  100%{
+    transform:translateY(0px) rotate(0deg);
+  }
+} */
+
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Glow Glam Glitter</h1>
+    <!-- <p>Mehendi Artist & Makeup Artist</p> -->
+     <img src="images/logo.jpeg" class="logo">
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Landing Page Buttons -->
+  <section id="landing-buttons" style="text-align:center; padding:4rem 1.5rem;">
+    <h2 style="color:#b76e79;">Explore My Work</h2>
+    <div style="margin-top:2rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;">
+      <a href="makeup.html" style="padding:1rem 2.5rem; background:#f2c6b4; color:#333; border-radius:30px; text-decoration:none; font-size:1.1rem; transition:transform 0.3s ease;">Makeup</a>
+      <a href="mehendi.html" style="padding:1rem 2.5rem; background:#b76e79; color:white; border-radius:30px; text-decoration:none; font-size:1.1rem; transition:transform 0.3s ease;">Mehendi</a>
+      <!-- <a href="makeup.html" style="padding:1rem 2.5rem; background:#f2c6b4; color:#333; border-radius:30px; text-decoration:none; font-size:1.1rem; transition:transform 0.3s ease;">Makeup</a> -->
+    </div>
+  </section>
+
+  <section id="about">
+
+  <div class="about-section">
+
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I am Nidhi Nakrani and I am a passionate Mehendi and Makeup Artist dedicated to creating beautiful and elegant looks for every occasion. I specialize in bridal, festive, and traditional designs that enhance natural beauty and reflect personal style. At Glow Glam Glitter, my goal is to provide a relaxing and enjoyable experience while ensuring every client feels confident, radiant, and special on their important day.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="images/about.jpg" alt="Artist Photo">
+    </div>
+
+  </div>
+
+  </section>
+
+  <section id="services">
+  <h2>Services</h2>
+
+  <div class="services-container">
+    <div class="service-card">
+      <h3>Bridal Mehendi</h3>
+      <p>Elegant and intricate bridal mehendi designs for weddings and special occasions.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Bridal Makeup</h3>
+      <p>Professional makeup that enhances natural beauty and creates a stunning bridal look.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Festive & Party Looks</h3>
+      <p>Beautiful mehendi and makeup styles for festivals, parties, and celebrations.</p>
+    </div>
+  </div>
+  </section>
+
+  <!-- <div class="floating-bg">
+  <img src="images/arabic2.jpeg">
+  <img src="images/indian1.jpeg">
+  <img src="images/hair1.jpeg">
+  </div> -->
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <!-- <p>📞 Phone: +91 6303710483</p> -->
+      <!-- <a href="tel:+919876543210" class="call-btn">
+  📞 Call for Bookings
+      </a> -->
+      <a href="https://wa.me/916303710483?text=Hi! I'm interested in booking a session." target="_blank" class="call-btn" style="background-color: #25D366;">
+        Chat on WhatsApp
+        
+      </a>
+      
+      <!-- <p>📸 Instagram: @glammingly_glows</p> -->
+       <br>
+      <br>
+      <a href="https://www.instagram.com/glammingly_glows" target="_blank" rel="noopener noreferrer" class="insta-button">
+        Place your order from Instagram
+      </a>
+      <p>📧 Email: nidhinakrani08gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Nidhi Nakrani | Mehendi & Makeup Portfolio</p>
+  </footer>
+
+</body>
+</html>
